@@ -1,0 +1,7 @@
+type Query {
+    myMethod(name: String!): MyResponse
+}
+
+type MyResponse {
+    message: String
+}
