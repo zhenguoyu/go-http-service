@@ -3,7 +3,7 @@ package main
 import (
 	"go-http-service/internal/api"
 	"go-http-service/internal/config"
-	"go-http-service/internal/log"
+	"go-http-service/internal/logger"
 )
 
 func main() {
@@ -14,8 +14,8 @@ func main() {
 	router := api.NewRouter()
 
 	// 启动HTTP服务
-	log.InfoLogger.Println("启动HTTP服务，监听端口8080...")
+	logger.InfoLogger("启动HTTP服务，监听端口8080...")
 	if err := router.Run(":8080"); err != nil {
-		log.ErrorLogger.Fatalf("无法启动HTTP服务: %v", err)
+		logger.ErrorLogger("无法启动HTTP服务: %v", err)
 	}
 }
